@@ -1,0 +1,180 @@
+* {
+  box-sizing: border-box;
+}
+body,
+html {
+  margin: 0;
+  padding: 0;
+}
+.mobile__nav--wrapper {
+  display: none;
+}
+
+@media only screen and (max-width: 960px) {
+  /* element selectors */
+  html {
+    font-size: 62.5%;
+  }
+  h1 {
+    font-size: 3.1rem;
+  }
+
+  h2 {
+    font-size: 2.7rem;
+  }
+
+  h3 {
+    font-size: 2.4rem;
+  }
+
+  h4 {
+    font-size: 1.8rem;
+  }
+
+  h5 {
+    font-size: 1.6rem;
+    font-weight: 500;
+  }
+
+  h6 {
+    font-size: 1.4rem;
+  }
+  main {
+    padding-top: 10vh;
+  }
+
+  section:first-of-type {
+    height: 90vh;
+  }
+
+  /* NAVIGATION */
+  /* turn off main menu on small (<960px) screens */
+  .main__nav--flex {
+    display: none;
+  }
+
+  .mobile__nav--wrapper {
+    /* mobile menu for small screens (< 960px)*/
+    display: block;
+    box-shadow: 1px 1px 4px 0 rgba(0, 0, 0, 0.1);
+    position: fixed;
+    overflow-y: scroll;
+    width: 100vw;
+    z-index: 100;
+    background-color: white;
+  }
+  #input--toggle:focus + #label--toggle {
+    outline: 1px solid;
+  }
+
+  #input--toggle {
+    /* hide input-checkbox but keep in DOM for A11y */
+    position: absolute !important;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+    clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+    clip: rect(1px, 1px, 1px, 1px);
+    white-space: nowrap; /* added line */
+  }
+
+  #label--toggle {
+    margin: 1vh;
+    height: 8vh;
+    width: 8vh;
+    text-align: center;
+  }
+
+  .mobile--menu {
+    max-height: 0;
+    overflow-y: hidden;
+  }
+
+  #label--toggle:checked ~ .mobile--menu {
+    overflow-y: auto;
+  }
+
+  .mobile--logo {
+    height: 6vh;
+    width: auto;
+    margin: 2vh;
+  }
+  .mobile--menu a {
+    padding: 1vw;
+    display: block;
+    width: 98vw;
+    font-size: 2.4rem;
+    text-align: center;
+    text-decoration: none;
+    color: #333;
+  }
+  .mobile--menu a:visited {
+    color: #333;
+  }
+
+  .menu--toggle {
+    float: right;
+    height: 50px;
+    position: relative;
+    margin-right: 20px;
+  }
+  .menu--icon {
+    transition: background-color 0.2s ease-out;
+    position: relative;
+    height: 2px;
+    background-color: #333;
+    width: 20px;
+    margin: 50% 0;
+    display: inline-block;
+  }
+  .menu--toggle:checked ~ #label--toggle .menu--icon {
+    background-color: transparent;
+  }
+  .menu--icon::before,
+  .menu--icon::after {
+    height: 100%;
+    background: #333;
+    display: block;
+    width: 100%;
+    content: "";
+    position: absolute;
+    transition: all 0.2s ease-out;
+  }
+  .menu--icon::before {
+    top: -5px;
+  }
+  .menu--icon::after {
+    top: 5px;
+  }
+
+  #input--toggle:checked ~ #label--toggle .menu--icon::before,
+  #input--toggle:checked ~ #label--toggle .menu--icon::after {
+    top: 0px;
+  }
+  #input--toggle:checked ~ #label--toggle .menu--icon::before {
+    transform: rotate(45deg);
+  }
+  #input--toggle:checked ~ #label--toggle .menu--icon::after {
+    transform: rotate(-45deg);
+  }
+
+  #input--toggle:checked ~ nav.mobile--menu {
+    /* padding-top: 10vh; */
+    display: flex;
+    flex-direction: column;
+    height: 70vh;
+    width: 100vw;
+    max-height: 80vh;
+    justify-content: space-around;
+    transition: max-height 0.9s ease-out;
+  }
+}
+/* SECTIONS */
+.main__hero--callout {
+  padding: 20vh 2rem;
+}
+
+.main__section--split-img-right,
+.main__section--split-img-left {
+}
+/* BUTTONS */
